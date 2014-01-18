@@ -1,0 +1,57 @@
+# Use C-\ for escape key (C-a is not good for emacs)
+escape ^\\
+
+# Don't display the copyright notice during startup
+startup_message off
+
+# Remember 5000 lines of history
+defscrollback 5000
+
+# Set the screen title dynamically
+#
+# This depends on some co-operation from your shell.
+# This only works if the shell prints the string '\033k\033\134'
+# as part of its prompt.  See the sample.bashrc file for an example of how to
+# do this in bash.
+#
+# The part after '|' is used when no dynamic title is available from the shell.
+# Feel free to change "bash" to the name of your preferred shell.
+shelltitle '$ |bash'
+
+# Use the hardstatus line to contain the window number & window hardstatus.
+hardstatus string "[screen %n] %h"
+
+# By default, put the window title, username, and hostname in each
+# window's hardstatus line.
+#
+# You can also configure your shell to dynamically update this information.
+# See the sample.bashrc file for an example of how to do this in bash.
+#
+# (The example bashrc code causes bash to update the username and hostname if
+# you ssh to another system.  It also includes the shell's current working
+# directory.)
+defhstatus "^Et ($USER@^EH)"
+
+# Put the hardstatus line in your terminal emulator's title.
+#
+# Indicate that xterm/rxvt/etc have a hardstatus line, and indicate that
+# the commands to set it are the commands to set the title
+termcapinfo xterm*|rxvt*|kterm*|Eterm* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
+
+# Don't display the hardstatus line at the bottom of the screen.
+# (We only use it to contain the title, so it's pretty much the same thing
+# as the caption.  Using the "caption" functionality is better if you want
+# window info displayed at the bottom of the screen.)
+hardstatus off
+
+# Set the string that the windowlist uses for each window
+# This includes the hardstatus info, to make it easier to see what's running in
+# each window.
+windowlist string "[%n] %h%=%f"
+
+# Put the screen number and hardstatus line in the caption
+caption string "[screen %n] %h"
+caption always
+
+# Color schema for working with emacs
+term screen-256color
